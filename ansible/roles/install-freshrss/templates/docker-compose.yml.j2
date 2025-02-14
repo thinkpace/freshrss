@@ -1,0 +1,23 @@
+volumes:
+  data:
+  extensions:
+
+services:
+  freshrss:
+    image: freshrss/freshrss:latest
+    container_name: freshrss
+    restart: unless-stopped
+    logging:
+      options:
+        max-size: 10m
+    volumes:
+      - data:/var/www/FreshRSS/data
+      - extensions:/var/www/FreshRSS/extensions
+    ports:
+      - '{{ freshrss_port }}:80'
+    environment:
+      TZ: Europe/Paris
+      # Cron job to refresh feeds at specified minutes
+      CRON_MIN: '*/5'
+      # 'development' for additional logs; default is 'production'
+      FRESHRSS_ENV: production

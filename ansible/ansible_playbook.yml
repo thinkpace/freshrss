@@ -1,0 +1,4 @@
+- hosts: freshrss
+  become: true
+  roles:
+    - install-freshrss

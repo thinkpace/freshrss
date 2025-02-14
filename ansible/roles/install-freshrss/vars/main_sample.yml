@@ -1,0 +1,6 @@
+---
+freshrss_path: '/opt/freshrss'
+freshrss_user: 'freshrss'
+freshrss_group: 'freshrss'
+freshrss_port: '8089'
+freshrss_rsync_target: 'backup_user@rsync_server::backup_target'
